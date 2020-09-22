@@ -1,10 +1,18 @@
 import os
 from git.repo.base import Repo
+import pathlib
+import pip
+
 
 
 Repo.clone_from("https://github.com/sakshamsahu007/DevOps.git", "H:\\Download_GIT")
 
-pip install -r requirements.txt
+file = pathlib.Path('requirements.txt')
+
+if file.exists():
+    print('File exists and installing...')
+    #os.system('pip install -r requirements.txt')
+    pip.main(['install', '-t', 'H:\\Download_GIT', '-r', 'requirements.txt'])
 
 
 
